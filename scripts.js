@@ -1,5 +1,17 @@
+
 document.getElementById('start_button').onclick = function changeContent() {
-  alert("1");
+	document.getElementById("guess_box").readOnly = true;
+	document.getElementById("guess_box").value = "ממציא מספר."
+
+	let thinkingInterval = setInterval(() => {
+		document.getElementById("guess_box").value += ".";
+	}, 750);
+
+	setTimeout(() => { 
+		clearInterval(thinkingInterval); 
+		document.getElementById("guess_box").readOnly = false;
+		document.getElementById("guess_box").value = ""
+	}, 6000);
 }
 
 var lastGuess = 0;
